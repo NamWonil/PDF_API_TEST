@@ -1,10 +1,9 @@
 # 构建阶段
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["WebApplication1/WebApplication1.csproj", "./"]  # 修正目标路径到当前目录
-RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+COPY WebApplication1.csproj ./
+RUN dotnet restore "WebApplication1.csproj"
 COPY . .
-WORKDIR "/src/WebApplication1"  # 切换到项目目录
 RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
 
 # 发布阶段
