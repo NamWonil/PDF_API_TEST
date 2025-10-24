@@ -25,4 +25,4 @@ app.UseRouting();  // 确保有这行
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT") ?? "8080");
