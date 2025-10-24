@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "PDF 查看";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div style="color: red;">@ViewBag.Error</div>
+}
+else
+{
+    <h3>查看 PDF: @ViewBag.FileName</h3>
+    <!-- 用浏览器内置PDF插件渲染 -->
+    <embed src="@ViewBag.PdfUrl" type="application/pdf" width="100%" height="800px" />
+}
